@@ -147,8 +147,6 @@ const AdminDashboard = () => {
     { id: 'overview', label: 'Overview', icon: <LayoutDashboard size={20} /> },
     { id: 'bookings', label: 'Bookings', icon: <CalendarCheck size={20} /> },
     { id: 'rooms', label: 'Manage Rooms', icon: <BedDouble size={20} /> },
-    { id: 'guests', label: 'Guests', icon: <Users size={20} /> },
-    { id: 'settings', label: 'Settings', icon: <Settings size={20} /> },
   ];
 
   const renderTabContent = () => {
@@ -211,10 +209,10 @@ const AdminDashboard = () => {
                         bookingId: 'TEST-123',
                       });
                       
-                      alert('🚀 Test email sent successfully to fiestahoteladmin@gmail.com! Check your inbox (and spam folder).');
+                      alert('Test email sent successfully to fiestahoteladmin@gmail.com! Check your inbox (and spam folder).');
                     } catch (err) {
                       console.error(err);
-                      alert('❌ Failed to send test email: ' + err.message);
+                      alert(' Failed to send test email: ' + err.message);
                     } finally {
                       const btn = document.activeElement;
                       if (btn) {
@@ -357,14 +355,16 @@ const AdminDashboard = () => {
                 setActiveTab(item.id);
                 setIsSidebarOpen(false);
               }}
-              className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl font-medium transition-all ${
+              className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl font-medium transition-all group ${
                 activeTab === item.id 
                   ? 'bg-accent/10 text-accent' 
                   : 'text-text-secondary hover:bg-section'
               }`}
             >
-              {item.icon}
-              {item.label}
+              <span className="flex-shrink-0 w-5 h-5 flex items-center justify-center">
+                {item.icon}
+              </span>
+              <span>{item.label}</span>
             </button>
           ))}
         </nav>

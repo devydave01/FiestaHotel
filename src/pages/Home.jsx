@@ -99,7 +99,7 @@ const Home = () => {
                   <Calendar size={14} className="absolute left-0 top-1/2 -translate-y-1/2 text-accent" />
                   <input 
                     type="date" 
-                    className="bg-transparent border-0 text-white font-medium focus:outline-none w-full [color-scheme:dark]"
+                    className="bg-transparent border-0 text-white font-medium pl-6 focus:outline-none w-full [color-scheme:dark]"
                     value={bookingDetails.checkOut || ''}
                     onChange={(e) => setBookingDetails({ checkOut: e.target.value })}
                   />
