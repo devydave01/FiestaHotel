@@ -14,7 +14,7 @@ export const rooms = [
     wifi: true,
     status: "Available",
     size: "large",
-    description: "Experience the pinnacle of luxury in our Lekki Royal Penthouse. Featuring panoramic views of the Lagos lagoon, a private terrace, and bespoke furnishings."
+    description: "Experience the pinnacle of luxury in our  Royal Penthouse. Featuring panoramic views of the Lagos lagoon, a private terrace, and bespoke furnishings."
   },
   {
     id: 2,
@@ -26,15 +26,15 @@ export const rooms = [
       "https://images.unsplash.com/photo-156666579773it=crop&q=80&w=1000",
       "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjBiYXRocm9vbXxlbnwwfHwwfHx8MA%3D%3D",
     ],
-    beds: 2,
+    beds: 3,
     baths: 2,
     wifi: true,
     status: "Available",
     size: "small",
-    description: "A serene retreat in the heart of Abuja. Perfectly balanced minimalism and comfort for the discerning traveler."
+    description: "A serene and Perfectly balanced minimalism and comfort for the discerning traveler."
   },
   {
-    id: 3,
+    id: 2,
     name: "Garden Terrace",
     price: "75,000",
     type: "Standard",
@@ -48,7 +48,7 @@ export const rooms = [
     wifi: true,
     status: "Booked",
     size: "small",
-    description: "A cozy retreat surrounded by lush greenery in Victoria Island. Ideal for those seeking peace and quiet in the city."
+    description: "A cozy retreat surrounded by lush and Ideal for those seeking peace and quiet in the city."
   },
   {
     id: 4,
@@ -65,6 +65,6 @@ export const rooms = [
     wifi: true,
     status: "Available",
     size: "large",
-    description: "Spacious and elegant, our Family Wing in Ikeja GRA offers comfort for the whole group with premium amenities."
+    description: "Spacious and elegant, our Family Wing in lagos offers comfort for the whole group with premium amenities."
   }
 ];

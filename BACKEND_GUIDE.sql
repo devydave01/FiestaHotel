@@ -1,10 +1,5 @@
--- ======================================================
--- FIESTA HOTEL & SUITES - BACKEND IMPLEMENTATION GUIDE
--- ======================================================
 
 -- 1. DATABASE TABLES STRUCTURE
--- ------------------------------------------------------
-
 -- Rooms Table
 CREATE TABLE rooms (
     id INT AUTO_INCREMENT PRIMARY KEY,
