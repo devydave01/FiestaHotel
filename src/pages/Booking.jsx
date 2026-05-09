@@ -21,7 +21,7 @@ const Booking = () => {
     );
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -31,10 +31,24 @@ const Booking = () => {
       return;
     }
 
-    setUserInfo(formData);
-    navigate('/checkout');
-  };
+    try {
+      await api.createBooking({
+        room_id: selectedRoom.id,
+        guest_name: formData.fullName,
+        guest_email: formData.email,
+        phone: formData.phone,
+        special_requests: formData.specialRequests,
+        check_in: bookingDetails.checkIn,
+        check_out: bookingDetails.checkOut,
+        guests: bookingDetails.guests,
+      });
 
+      setUserInfo(formData);
+      navigate('/checkout');
+    } catch (err) {
+      setError('Booking failed. Please try again.');
+    }
+  };
   const nights = getNights();
 
   return (

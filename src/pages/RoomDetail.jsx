@@ -20,6 +20,11 @@ const RoomDetail = () => {
     const fetchRoom = async () => {
       try {
         const data = await api.getRoomById(id);
+// Convert images string to array if needed
+if (data.images && typeof data.images === 'string') {
+  data.images = [data.images];
+}
+setRoom(data);
         setRoom(data);
       } catch (error) {
         console.error('Failed to fetch room:', error);
