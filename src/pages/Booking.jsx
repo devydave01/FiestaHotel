@@ -5,6 +5,7 @@ import { ArrowLeft, User, Mail, Phone, MessageSquare } from 'lucide-react';
 import useStore from '../store/useStore';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
+import api from '../services/api';  // adjust path if your api.js is elsewhere
 
 const Booking = () => {
   const navigate = useNavigate();
@@ -46,8 +47,9 @@ const Booking = () => {
       setUserInfo(formData);
       navigate('/checkout');
     } catch (err) {
-      setError('Booking failed. Please try again.');
-    }
+  console.log('Booking error:', err.message);
+  setError('Booking failed. Please try again.');
+}
   };
   const nights = getNights();
 

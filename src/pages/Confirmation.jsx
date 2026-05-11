@@ -5,6 +5,7 @@ import { CheckCircle, Calendar, MapPin, ArrowRight } from 'lucide-react';
 import useStore from '../store/useStore';
 import Button from '../components/atoms/Button';
 import Badge from '../components/atoms/Badge';
+import jsPDF from 'jspdf';
 
 const Confirmation = () => {
   const { selectedRoom, userInfo, resetBooking, bookingDetails, getNights } = useStore();
@@ -35,6 +36,22 @@ const Confirmation = () => {
 
   const bookingId = sessionStorage.getItem('fiesta_booking_id') || ('FSTA-' + Math.floor(100000 + Math.random() * 900000));
   const nights = getNights();
+  const handleDownloadPDF = () => {
+  const doc = new jsPDF();
+  doc.setFontSize(22);
+  doc.text('Fiesta Hotel - Booking Receipt', 20, 20);
+  doc.setFontSize(12);
+  doc.text(`Booking ID: ${bookingId}`, 20, 40);
+  doc.text(`Status: Pending Approval`, 20, 52);
+  doc.text(`Guest Name: ${userInfo.fullName}`, 20, 64);
+  doc.text(`Email: ${userInfo.email}`, 20, 76);
+  doc.text(`Room: ${selectedRoom.name} (${selectedRoom.type} Suite)`, 20, 88);
+  doc.text(`Check-in: ${bookingDetails.checkIn}`, 20, 100);
+  doc.text(`Check-out: ${bookingDetails.checkOut}`, 20, 112);
+  doc.text(`Nights: ${nights}`, 20, 124);
+  doc.text(`Guests: ${bookingDetails.guests}`, 20, 136);
+  doc.save(`Fiesta-Receipt-${bookingId}.pdf`);
+};
 
   return (
     <div className="bg-white min-h-screen pt-24 md:pt-40 pb-24 px-4 md:px-6 flex items-center justify-center">
@@ -103,8 +120,7 @@ const Confirmation = () => {
           >
             Back to Home
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto">
-            Download PDF Receipt
+          <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={handleDownloadPDF}>
             <ArrowRight size={18} className="ml-2" />
           </Button>
         </div>
